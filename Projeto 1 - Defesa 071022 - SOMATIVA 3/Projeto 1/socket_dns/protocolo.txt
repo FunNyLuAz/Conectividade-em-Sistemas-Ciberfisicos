@@ -1,0 +1,43 @@
+PROTOCOLO:
+
+<tipo>+<comando>:<parametro1>,<parametro2>,...
+Ex.: snd+login:admin,admin123
+
+
+TIPOS
+
+-> GET:
+
+      Indica que o comando é de requerimento de dados (há retorno)
+
+
+-> SND:
+
+      Indica que o comando é de envio de dados (não há retorno)
+
+
+-> ACK:
+
+      Indica que o comando é de resposta de validade dos dados enviados previamente (exclusivo do servidor para o cliente)
+
+
+-> KILL
+      kill+: -> Finaliza a conexão
+
+
+COMANDOS
+
+-> LOGIN:
+      get+login:
+      snd+login:<usuário>,<senha> -> usuário : str | senha : str
+      ack+login:(true/false) -> Retorna "true" se login for bem sucedido, caso contrário retorna "false"
+
+      Após o uso inicial, é ignorado como um comando
+      
+
+-> IPSERVER:
+      get+ipserver:<domínio do servidor>
+      snd+ipserver:<ip do servidor>
+
+      Uso restrito a após o login ser confirmado
+
